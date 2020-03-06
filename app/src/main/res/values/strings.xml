@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Pop Quizz</string>
+    <string name="levels_prompt">Difficulté</string>
+    <string name="themes_prompt">Thème</string>
+
+    <string-array name="levels">
+        <item> - </item>
+        <item>Facile</item>
+        <item>Moyen</item>
+        <item>Difficile</item>
+    </string-array>
+
+    <string-array name="themes">
+        <item> - </item>
+        <item>General Knowledge</item>
+        <item>Books</item>
+        <item>Films</item>
+        <item>Music</item>
+        <item>TV</item>
+        <item>Video Games</item>
+        <item>Science and Nature</item>
+        <item>Computer</item>
+        <item>Maths</item>
+        <item>Sports</item>
+        <item>Geography</item>
+        <item>History</item>
+        <item>Politics</item>
+        <item>Arts</item>
+    </string-array>
+</resources>

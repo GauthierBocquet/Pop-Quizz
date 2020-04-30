@@ -12,30 +12,26 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:fontFamily="sans-serif-black"
+        android:justificationMode="inter_word"
         android:text="Pop Quizz"
         android:textAllCaps="false"
         android:textColor="#009688"
-        android:textSize="45sp"
+        android:textSize="50sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/pseudo"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="Pseudo"
-            android:textSize="30sp" />
-    </com.google.android.material.textfield.TextInputLayout>
+    <fragment
+        android:id="@+id/scoreboardFragment"
+        android:name="com.android.popquizz.activity.fragment.ScoreboardFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
 
     <TextView
         android:id="@+id/textView2"
@@ -48,7 +44,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.249"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pseudo"
+        app:layout_constraintTop_toBottomOf="@+id/scoreboardFragment"
         app:layout_constraintVertical_bias="1.0" />
 
     <LinearLayout
@@ -57,7 +53,7 @@
         android:layout_height="40dp"
         android:layout_marginTop="60dp"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/pseudo">
+        app:layout_constraintTop_toBottomOf="@+id/scoreboardFragment">
 
         <TextView
             android:layout_width="match_parent"
@@ -101,8 +97,8 @@
         android:layout_height="40dp"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="388dp"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:layout_editor_absoluteY="388dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -124,19 +120,28 @@
             android:layout_weight="2" />
     </LinearLayout>
 
-
-
     <Button
         android:id="@+id/button"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="VALIDER"
+        android:onClick="play"
         android:textSize="18sp"
+        android:background="@drawable/shape"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/level"
         app:layout_constraintVertical_bias="0.47000003" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:backgroundTint="@color/mainColor"
+        android:onClick="goToInfoPage"
+        android:src="@drawable/info"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

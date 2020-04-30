@@ -4,4 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:orientation="vertical"></LinearLayout>
+    android:background="@color/mainColor"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Classement"
+        android:textAlignment="center"
+        android:textColor="@color/colorWhite"
+        android:textSize="40dp" />
+</LinearLayout>

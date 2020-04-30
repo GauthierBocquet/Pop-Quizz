@@ -3,17 +3,15 @@ package com.android.popquizz.activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.text.Html;
 import android.view.View;
 import android.widget.Spinner;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.text.HtmlCompat;
 
 import com.android.popquizz.API;
-import com.android.popquizz.R;
 import com.android.popquizz.APIMapping;
+import com.android.popquizz.R;
 import com.android.popquizz.bean.Question;
 import com.android.popquizz.bean.Results;
 import com.google.gson.Gson;
@@ -60,16 +58,16 @@ public class MainActivity extends AppCompatActivity {
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(API.BASE_URL)
+
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
         API api = retrofit.create(API.class);
 
-        Call<Results> questions = api.getQuestions("application/json",  "api.php?amount=10&type=multiple&category=" + APIMapping.getIdByTheme(theme) + "&difficulty=" + APIMapping.translateDifficulty(difficulty));
+        Call<Results> questions = api.getQuestions("application/json", "api.php?amount=10&type=multiple&category=" + APIMapping.getIdByTheme(theme) + "&difficulty=" + APIMapping.translateDifficulty(difficulty));
 
 
         System.out.println(API.BASE_URL + "api.php?amount=10&type=multiple&category=" + APIMapping.getIdByTheme(theme) + "&difficulty=" + APIMapping.translateDifficulty(difficulty));
-
 
 
         questions.enqueue(new Callback<Results>() {
@@ -86,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
                     question.setQuestion(Jsoup.parse(question.getQuestion()).text());
 
                     List<String> incorrectAnswers = new ArrayList<>();
-                    for (int i=0; i<question.getIncorrect_answers().size(); i++){
+                    for (int i = 0; i < question.getIncorrect_answers().size(); i++) {
                         incorrectAnswers.add(Jsoup.parse(question.getIncorrect_answers().get(i)).text());
                     }
                     question.setIncorrect_answers(incorrectAnswers);
@@ -103,6 +101,10 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println("error");
             }
         });
+    }
 
+    public void goToInfoPage(View view) {
+        Intent intent = new Intent(getBaseContext(), InformationActivity.class);
+        startActivity(intent);
     }
 }

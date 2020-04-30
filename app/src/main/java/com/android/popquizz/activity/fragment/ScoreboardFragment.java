@@ -1,12 +1,10 @@
 package com.android.popquizz.activity.fragment;
 
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
@@ -32,11 +30,8 @@ public class ScoreboardFragment extends Fragment {
         db.topDao().getAllTops().forEach(entity -> System.out.println("Top :" + entity.getName() + "|" + entity.getScore()));
 
         db.topDao().getTops(3).forEach(topEntity -> {
-                    TextView topText = new TextView(this.getActivity().getApplicationContext());
-
-                    topText.setText(topEntity.getName() + "|" + topEntity.getScore());
-            topText.setGravity(Gravity.CENTER);
-                    topLinearLayout.addView(topText);
+            ScoreboardItemFragment item = new ScoreboardItemFragment(topEntity.getScore(), topEntity.getName());
+            topLinearLayout.addView(item.getLayout(this.getContext()));
                 }
         );
     }

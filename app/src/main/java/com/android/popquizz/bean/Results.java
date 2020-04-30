@@ -1,9 +1,8 @@
 package com.android.popquizz.bean;
 
-import java.io.Serializable;
 import java.util.List;
 
-public class Results implements Serializable {
+public class Results {
 
     private List<Question> results;
 
